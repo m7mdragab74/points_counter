@@ -1,6 +1,11 @@
 # points_counter
 
-A new Flutter project.
+This app allow users to track and update the points scored by two teams, Team A and Team B
+- Provides buttons for users to increment the score of each team by 1, 2, or 3 points individually.
+- Displays the current score of each team prominently on the screen using large font sizes.
+- Includes a "Reset" button that resets both team scores to zero when pressed.
+- Utilizes StatefulWidget and setState to manage mutable state for team scores.This app allow users to track and update the points scored by two teams, Team A and Team B - Provides buttons for users to increment the score of each team by 1, 2, or 3 points individually. - Displays the current score of each team prominently on the screen using large font sizes. - Includes a "Reset" button that resets both team scores to zero when pressed. - Utilizes StatefulWidget and setState to manage mutable state for team scores.
+⁦
 
 ## Getting Started
 
