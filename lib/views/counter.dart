@@ -6,20 +6,12 @@ import 'package:points_counter/widget/custom_add_point_bottom.dart';
 import 'package:points_counter/widget/head_text.dart';
 
 class CounterView extends StatelessWidget {
-  CounterView({super.key});
-  int teamAPoints = 0;
-  int teamBPoints = 0;
+  const CounterView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<CounterCubit, CounterState>(
-      listener: (context, state) {
-        if (state is CounterAIncrementState) {
-          teamAPoints = BlocProvider.of<CounterCubit>(context).teamAPoints;
-        } else {
-          teamBPoints = BlocProvider.of<CounterCubit>(context).teamBPoints;
-        }
-      },
+      listener: (context, state) {},
       builder: (context, state) {
         return Scaffold(
           appBar: AppBar(
@@ -43,28 +35,37 @@ class CounterView extends StatelessWidget {
                         title: 'Team A',
                       ),
                       Text(
-                        '$teamAPoints',
-                        style: TextStyle(
+                        '${BlocProvider.of<CounterCubit>(context).teamAPoints}',
+                        style: const TextStyle(
                           fontSize: 170,
                         ),
                       ),
                       CustomAddPointBottom(
                         title: 'Add 1 point',
-                        onPressed: () {},
+                        onPressed: () {
+                          BlocProvider.of<CounterCubit>(context)
+                              .teamIncrement(team: 'A', bottomNumber: 1);
+                        },
                       ),
                       const SizedBox(
                         height: 10,
                       ),
                       CustomAddPointBottom(
                         title: 'Add 2 point',
-                        onPressed: () {},
+                        onPressed: () {
+                          BlocProvider.of<CounterCubit>(context)
+                              .teamIncrement(team: 'A', bottomNumber: 2);
+                        },
                       ),
                       const SizedBox(
                         height: 10,
                       ),
                       CustomAddPointBottom(
                         title: 'Add 3 point',
-                        onPressed: () {},
+                        onPressed: () {
+                          BlocProvider.of<CounterCubit>(context)
+                              .teamIncrement(team: 'A', bottomNumber: 3);
+                        },
                       ),
                     ],
                   ),
@@ -85,28 +86,37 @@ class CounterView extends StatelessWidget {
                         title: 'Team B',
                       ),
                       Text(
-                        '$teamBPoints',
-                        style: TextStyle(
+                        '${BlocProvider.of<CounterCubit>(context).teamBPoints}',
+                        style: const TextStyle(
                           fontSize: 170,
                         ),
                       ),
                       CustomAddPointBottom(
                         title: 'Add 1 point',
-                        onPressed: () {},
+                        onPressed: () {
+                          BlocProvider.of<CounterCubit>(context)
+                              .teamIncrement(team: 'B', bottomNumber: 1);
+                        },
                       ),
                       const SizedBox(
                         height: 10,
                       ),
                       CustomAddPointBottom(
                         title: 'Add 2 point',
-                        onPressed: () {},
+                        onPressed: () {
+                          BlocProvider.of<CounterCubit>(context)
+                              .teamIncrement(team: 'B', bottomNumber: 2);
+                        },
                       ),
                       const SizedBox(
                         height: 10,
                       ),
                       CustomAddPointBottom(
                         title: 'Add 3 point',
-                        onPressed: () {},
+                        onPressed: () {
+                          BlocProvider.of<CounterCubit>(context)
+                              .teamIncrement(team: 'B', bottomNumber: 3);
+                        },
                       ),
                     ],
                   ),
@@ -117,7 +127,10 @@ class CounterView extends StatelessWidget {
               ),
               CustomAddPointBottom(
                 title: 'Reset',
-                onPressed: () {},
+                onPressed: () {
+                  BlocProvider.of<CounterCubit>(context)
+                      .teamIncrement(team: 'R', bottomNumber: 0);
+                },
               ),
             ],
           ),
